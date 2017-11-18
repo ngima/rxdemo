@@ -3,6 +3,7 @@ package me.ngima.lambda
 import org.junit.Test
 
 import org.junit.Assert.*
+import java.util.regex.Pattern
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -16,10 +17,19 @@ class ExampleUnitTest {
     }
 
     @Test
-    fun selct(){
+    fun selct() {
 
-        val list = listOf("haha","hahaha")
+        val list = listOf(1, 1)
+        list.filter { it % 2 == 0 }
+                .forEach(Logger::log)
+    }
 
-        list.filter{ it.equals("haha") }.forEach(Logger::log)
+    fun getHahaImo(hahaString: String): String {
+        val pattern = Pattern.compile("ha")
+        val matcher = pattern.matcher(hahaString)
+
+        var haha = ""
+        while (matcher.find()) haha += ":D "
+        return haha
     }
 }
